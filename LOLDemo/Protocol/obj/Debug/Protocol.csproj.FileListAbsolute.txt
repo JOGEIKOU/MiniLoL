@@ -1,0 +1,8 @@
+C:\Users\Xyhai\OneDrive\桌面\UnityProjets\LOLDemo\Protocol\bin\Debug\Protocol.dll
+C:\Users\Xyhai\OneDrive\桌面\UnityProjets\LOLDemo\Protocol\bin\Debug\Protocol.pdb
+C:\Users\Xyhai\OneDrive\桌面\UnityProjets\LOLDemo\MyLOLdemo\Assets\Plugins\Protocol.dll
+C:\Users\Xyhai\OneDrive\桌面\UnityProjets\LOLDemo\MyLOLdemo\Assets\Plugins\Protocol.pdb
+C:\Users\Xyhai\OneDrive\桌面\UnityProjets\LOLDemo\Protocol\obj\Debug\Protocol.csprojAssemblyReference.cache
+C:\Users\Xyhai\OneDrive\桌面\UnityProjets\LOLDemo\Protocol\obj\Debug\Protocol.csproj.CoreCompileInputs.cache
+C:\Users\Xyhai\OneDrive\桌面\UnityProjets\LOLDemo\Protocol\obj\Debug\Protocol.dll
+C:\Users\Xyhai\OneDrive\桌面\UnityProjets\LOLDemo\Protocol\obj\Debug\Protocol.pdb
