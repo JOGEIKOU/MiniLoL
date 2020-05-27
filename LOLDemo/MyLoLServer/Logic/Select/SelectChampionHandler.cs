@@ -59,6 +59,16 @@ namespace MyLoLServer.Logic.Select
             if(roomMap.TryRemove(roomId,out room))
             {
                 //todoカウンダとルームのマップを削除
+                int temp = 0;
+                foreach (int item in room.teamRed.Keys)
+                {
+                    userRoom.TryRemove(item, out temp);
+                }
+                foreach (int item in room.teamBlue.Keys)
+                {
+                    userRoom.TryRemove(item, out temp);
+                }
+                room.list.Clear();
                 //ルームをキャッシュリストに入れる
                 roomCache.Push(room);
             }

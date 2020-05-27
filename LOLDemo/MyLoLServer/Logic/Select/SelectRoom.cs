@@ -19,6 +19,8 @@ namespace MyLoLServer.Logic.Select
 
         //今ルームにおる人数
         int EnterCount = 0;
+        //今ミッションのID
+        int missionId = -1;
 
         public void Init(List<int> teamRed, List<int> teamBlue)
         {
@@ -49,21 +51,64 @@ namespace MyLoLServer.Logic.Select
             }
 
             //初期化完了、アラーム設定20秒キャンピオン選択画面、今回チーム解散
-            ScheduleUtil.Instance.Schedule(delegate
+            missionId =  ScheduleUtil.Instance.Schedule(delegate
             {
                 //20秒経って、全員入ってない場合、ルーム解散
+                if(EnterCount < teamRed.Count + teamBlue.Count)
+                {
+                    Brocast(SelectProtocol.DESTORY_BRO, null);
+                    EventUtil.destorySelect(Area);
+                }
+                else
+                {
+                    missionId = ScheduleUtil.Instance.Schedule(delegate
+                    {
+                        bool selectAll = true;
+                        foreach (SelectModel item in this.teamRed.Values)
+                        {
+                            if(item.Champion == -1)
+                            {
+                                selectAll = false;
+                                break;
+                            }
+                        }
+                        if(selectAll)
+                        {
+                            foreach (SelectModel item in this.teamBlue.Values)
+                            {
+                                if(item.Champion == -1)
+                                {
+                                    selectAll = false;
+                                    break;
+                                }
+                            }
+                        }
+                        if(selectAll)
+                        {
+                            //selectchampoin終了したが、ready botton押してない場合 戦闘開始
+                            //todo
+                        }
+                        else
+                        {
+                            Destory();
+                        }
 
-
-
+                    }, 20 * 1000);
+                }
             }, 20 * 1000);
-
-
         }
 
+        private void Destory()
+        {
+            Brocast(SelectProtocol.DESTORY_BRO, null);
+            EventUtil.destorySelect(Area);
+        }
 
         public void ClientClose(UserToken token, string error)
         {
-            
+            Leave(token);
+            Brocast(SelectProtocol.DESTORY_BRO, null);
+            EventUtil.destorySelect(Area);
         }
 
 
