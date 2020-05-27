@@ -69,6 +69,8 @@ namespace MyLoLServer.Logic.Select
                     userRoom.TryRemove(item, out temp);
                 }
                 room.list.Clear();
+                room.teamRed.Clear();
+                room.teamBlue.Clear();
                 //ルームをキャッシュリストに入れる
                 roomCache.Push(room);
             }

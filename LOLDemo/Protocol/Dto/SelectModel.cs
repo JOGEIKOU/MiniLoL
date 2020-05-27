@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Protocol.Dto
 {
+    [Serializable]
     public class SelectModel
     {
         public int userId;                                                     //ユーサID
