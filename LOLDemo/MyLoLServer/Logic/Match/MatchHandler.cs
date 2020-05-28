@@ -128,7 +128,7 @@ namespace MyLoLServer.Logic.Match
                 }
                 //どんな方式ルームに入っても、ルーム満員判断
                 //もし満員なら、このルームをキャッシュリストに入れって
-                if(room.teamRed.Count == room.teamBule.Count || room.teamRed.Count == room.teamMax)
+                if(room.teamRed.Count == room.teamBule.Count && room.teamRed.Count == room.teamMax)
                 {
                     //ここでキャンピオン選びモジュールを知らせ
                     //クライアントも知らせ

@@ -193,7 +193,7 @@ namespace MyLoLServer.Logic.Select
         private void SelectChampion(UserToken token , int value)
         {
             //ユーザーがルームにおるか？？
-            if (!base.IsEntered(token)) return;
+            if (base.IsEntered(token)) return;
             UserModel user = GetUser(token);
             //ユーザーこのキャンピオンを持っているか
             if(!user.championList.Contains(value))
@@ -233,7 +233,7 @@ namespace MyLoLServer.Logic.Select
         private void Talk(UserToken token, string value)
         {
             //ユーザーがルームにおるか
-            if (!base.IsEntered(token)) return;
+            if (base.IsEntered(token)) return;
             UserModel user = GetUser(token);
             Brocast(SelectProtocol.TALK_BRO, user.name + ":" + value);
         }
@@ -245,7 +245,7 @@ namespace MyLoLServer.Logic.Select
         private void Ready(UserToken token)
         {
             //ユーザーがルームにおるか
-            if (!base.IsEntered(token)) return;
+            if (base.IsEntered(token)) return;
             int userId = GetUserId(token);
             if (readyList.Contains(userId)) return;
             SelectModel selectModel = null;
