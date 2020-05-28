@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyLoLServer.Dao.Model;
 using MyLoLServer.Tool;
 using NetFramework;
 using NetFramework.auto;
@@ -21,6 +22,8 @@ namespace MyLoLServer.Logic.Select
         int EnterCount = 0;
         //今ミッションのID
         int missionId = -1;
+
+        List<int> readyList = new List<int>();
 
         public void Init(List<int> teamRed, List<int> teamBlue)
         {
@@ -85,9 +88,9 @@ namespace MyLoLServer.Logic.Select
                        }
                        if (selectAll)
                        {
-                            //selectchampoin終了したが、ready botton押してない場合 戦闘開始
-                            //todo
-                        }
+                           //selectchampoin終了したが、ready botton押してない場合 戦闘開始
+                           StartFight();
+                       }
                        else
                        {
 
@@ -125,10 +128,13 @@ namespace MyLoLServer.Logic.Select
                     EnterRoom(token);
                     break;
                 case SelectProtocol.SELECT_CREQ:
+                    SelectChampion(token, message.GetMessage<int>());
                     break;
                 case SelectProtocol.TALK_CREQ:
+                    Talk(token, message.GetMessage<string>());
                     break;
                 case SelectProtocol.READY_CREQ:
+                    Ready(token);
                     break;
             }
         }
@@ -168,6 +174,111 @@ namespace MyLoLServer.Logic.Select
             Brocast(SelectProtocol.ENTER_EXBRO, userId, token);
         }
     
+        /// <summary>
+        /// チャンピオンを選択ロジック
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="value"></param>
+        private void SelectChampion(UserToken token , int value)
+        {
+            //ユーザーがルームにおるか？？
+            if (!base.IsEntered(token)) return;
+            UserModel user = GetUser(token);
+            //ユーザーこのキャンピオンを持っているか
+            if(!user.championList.Contains(value))
+            {
+                Write(token, SelectProtocol.SELECT_SRES, null);
+                return;
+            }
+            SelectModel selectModel = null;
+            if(teamRed.ContainsKey(user.id))
+            {
+                //normal matchの中に同じチームで同じチャンピオンがでない
+                foreach (SelectModel i in teamRed.Values)
+                {
+                    if (i.Champion == value) return;
+                }
+                selectModel = teamRed[user.id];
+            }
+            else
+            {
+                foreach (SelectModel i in teamBlue.Values)
+                {
+                    if (i.Champion == value) return;
+                }
+                selectModel = teamBlue[user.id];
+            }
+            //チャンピオン選択出来た
+            selectModel.Champion = value;
+            Brocast(SelectProtocol.SELECT_BRO, selectModel);
+        }
+
+        /// <summary>
+        /// Selectルームのチャット機能
+        /// 将来【悪口、禁止用語】など＊＊＊になる処理をtodo
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="value"></param>
+        private void Talk(UserToken token, string value)
+        {
+            //ユーザーがルームにおるか
+            if (!base.IsEntered(token)) return;
+            UserModel user = GetUser(token);
+            Brocast(SelectProtocol.TALK_BRO, user.name + ":" + value);
+        }
+
+        private void Ready(UserToken token)
+        {
+            //ユーザーがルームにおるか
+            if (!base.IsEntered(token)) return;
+            int userId = GetUserId(token);
+            if (readyList.Contains(userId)) return;
+            SelectModel selectModel = null;
+            if(teamRed.ContainsKey(userId))
+            {
+                selectModel = teamRed[userId];
+            }
+            else
+            {
+                selectModel = teamBlue[userId];
+            }
+            //チャンピオン選択しません
+            if(selectModel.Champion == -1)
+            {
+                //ランダム選択
+                //todo
+            }
+            else
+            {
+                selectModel.Ready = true;
+                Brocast(SelectProtocol.READY_BRO, selectModel);
+                readyList.Add(userId);
+
+                if(readyList.Count >= teamRed.Count + teamBlue.Count)
+                {
+                    //全員準備できた、戦闘開始
+                    StartFight();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 全員準備できた、戦闘開始
+        /// </summary>
+        private void StartFight()
+        {
+            if(missionId != -1)
+            {
+                ScheduleUtil.Instance.RemoveMission(missionId);
+                missionId = -1;
+            }
+            //戦闘モジュールに戦闘シートクリエイトを知らせ
+            //todo
+
+            //選択シーンにこのルームを削除を知らせ
+            EventUtil.destorySelect(Area);
+        }
+
 
 
         public override byte Type

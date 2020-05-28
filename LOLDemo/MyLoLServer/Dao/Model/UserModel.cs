@@ -16,6 +16,7 @@ namespace MyLoLServer.Dao.Model
         public int losecount;                                              //負数
         public int rancount;                                                //逃げ数
         public int accountId;                                           //キャラクターのカウンターID
+        public List<int> championList;                            //ユーザー選択のチャンピオン
 
         public UserModel()
         {
