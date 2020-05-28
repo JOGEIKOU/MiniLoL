@@ -58,6 +58,7 @@ namespace MyLoLServer.Logic.Match
             if (!userRoom.ContainsKey(userId))
             {
                 MatchRoom room = null;
+                bool isenter = false;
                 //今　待っているルームあるか
                 if(roomMap.Count > 0)
                 {
@@ -78,26 +79,31 @@ namespace MyLoLServer.Logic.Match
                                 room.teamBule.Add(userId);
                             }
                             //ユーザーとルームのマップ関係追加
+                            isenter = true;
                             userRoom.TryAdd(userId, room.id);
                             break;
                         }
                     }
-                    //待っているルームも満員
-                    //キャッシュリストから満員でないルーム、or 新しいルームをクリエイト
-                    if(roomCache.Count > 0)
+
+                    if(!isenter)
                     {
-                        roomCache.TryPop(out room);
-                        room.teamRed.Add(userId);
-                        roomMap.TryAdd(room.id, room);
-                        userRoom.TryAdd(userId, room.id);
-                    }
-                    else
-                    {
-                        room = new MatchRoom();
-                        room.id = index.GetAndAdd();
-                        room.teamRed.Add(userId);
-                        roomMap.TryAdd(room.id, room);
-                        userRoom.TryAdd(userId, room.id);
+                        //待っているルームも満員
+                        //キャッシュリストから満員でないルーム、or 新しいルームをクリエイト
+                        if (roomCache.Count > 0)
+                        {
+                            roomCache.TryPop(out room);
+                            room.teamRed.Add(userId);
+                            roomMap.TryAdd(room.id, room);
+                            userRoom.TryAdd(userId, room.id);
+                        }
+                        else
+                        {
+                            room = new MatchRoom();
+                            room.id = index.GetAndAdd();
+                            room.teamRed.Add(userId);
+                            roomMap.TryAdd(room.id, room);
+                            userRoom.TryAdd(userId, room.id);
+                        }
                     }
                 }
                 else
@@ -192,7 +198,15 @@ namespace MyLoLServer.Logic.Match
                     roomCache.Push(room);
                 }
             }
-
         }
+
+        public override byte Type
+        {
+            get
+            {
+                return GameProtocol.TYPE_MATCH;
+            }
+        }
+
     }
 }

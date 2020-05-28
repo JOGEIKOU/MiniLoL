@@ -28,8 +28,8 @@ namespace MyLoLServer.Logic.Select
         public void Init(List<int> teamRed, List<int> teamBlue)
         {
             //ルームの初期化
-            teamRed.Clear();
-            teamBlue.Clear();
+            this.teamRed.Clear();
+            this.teamBlue.Clear();
             EnterCount = 0;
             //red team
             foreach (int uid in teamRed)
@@ -292,8 +292,6 @@ namespace MyLoLServer.Logic.Select
             //選択シーンにこのルームを削除を知らせ
             EventUtil.destorySelect(Area);
         }
-
-
 
         public override byte Type
         {

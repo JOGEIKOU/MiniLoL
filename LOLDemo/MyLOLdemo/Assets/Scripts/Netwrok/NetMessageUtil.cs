@@ -7,10 +7,12 @@ public class NetMessageUtil : MonoBehaviour
 {
     private IHander login;
     private IHander user;
+    private IHander match;
     private void Start()
     {
         login = GetComponent<LoginHandler>();
         user = GetComponent<UserHandler>();
+        match = GetComponent<MatchHandler>();
     }
 
     void Update()
@@ -32,6 +34,9 @@ public class NetMessageUtil : MonoBehaviour
                 break;
             case GameProtocol.TYPE_USER:
                 user.MessageReceive(model);
+                break;
+            case GameProtocol.TYPE_MATCH:
+                match.MessageReceive(model);
                 break;
         }
     }

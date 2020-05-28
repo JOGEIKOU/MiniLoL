@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Lobi\CreatePanel.cs" />
     <Compile Include="Assets\Scripts\Lobi\LobiScene.cs" />
+    <Compile Include="Assets\Scripts\Lobi\MatchHandler.cs" />
     <Compile Include="Assets\Scripts\Login\LoginHandler.cs" />
     <Compile Include="Assets\Scripts\Login\LoginScenes.cs" />
     <Compile Include="Assets\Scripts\Netwrok\ByteArray.cs" />
@@ -77,6 +78,8 @@
     <Compile Include="Assets\Scripts\Netwrok\WarningModel.cs" />
     <Compile Include="Assets\Scripts\Netwrok\WarningMsgMgr.cs" />
     <Compile Include="Assets\Scripts\Netwrok\WarningPanel.cs" />
+    <Compile Include="Assets\Scripts\Select\SelectHandler.cs" />
+    <Compile Include="Assets\Scripts\Select\SelectScene.cs" />
     <Compile Include="Assets\Scripts\Test\Test.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

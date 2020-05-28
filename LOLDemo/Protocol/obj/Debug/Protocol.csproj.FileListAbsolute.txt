@@ -6,3 +6,9 @@ C:\Users\Xyhai\OneDrive\桌面\UnityProjets\LOLDemo\Protocol\obj\Debug\Protocol.
 C:\Users\Xyhai\OneDrive\桌面\UnityProjets\LOLDemo\Protocol\obj\Debug\Protocol.csproj.CoreCompileInputs.cache
 C:\Users\Xyhai\OneDrive\桌面\UnityProjets\LOLDemo\Protocol\obj\Debug\Protocol.dll
 C:\Users\Xyhai\OneDrive\桌面\UnityProjets\LOLDemo\Protocol\obj\Debug\Protocol.pdb
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\MyDemo\xyhaiwsq\LOLDemo\MyLOLdemo\Assets\Plugins\Protocol.dll
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\MyDemo\xyhaiwsq\LOLDemo\MyLOLdemo\Assets\Plugins\Protocol.pdb
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\MyDemo\xyhaiwsq\LOLDemo\Protocol\obj\Debug\Protocol.csprojAssemblyReference.cache
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\MyDemo\xyhaiwsq\LOLDemo\Protocol\obj\Debug\Protocol.csproj.CoreCompileInputs.cache
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\MyDemo\xyhaiwsq\LOLDemo\Protocol\obj\Debug\Protocol.dll
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\MyDemo\xyhaiwsq\LOLDemo\Protocol\obj\Debug\Protocol.pdb
