@@ -27,9 +27,10 @@ namespace MyLoLServer.Logic.Select
 
         public void Init(List<int> teamRed, List<int> teamBlue)
         {
+            //ルームの初期化
             teamRed.Clear();
             teamBlue.Clear();
-
+            EnterCount = 0;
             //red team
             foreach (int uid in teamRed)
             {
@@ -59,13 +60,14 @@ namespace MyLoLServer.Logic.Select
                 //20秒経って、全員入ってない場合、ルーム解散
                 if (EnterCount < teamRed.Count + teamBlue.Count)
                {
-                   Brocast(SelectProtocol.DESTORY_BRO, null);
-                   EventUtil.destorySelect(Area);
+                   Destory();
                }
                else
                {
+                   //再びタイマー使う　20秒選択
                    missionId = ScheduleUtil.Instance.Schedule(delegate
                    {
+                       //20秒
                        bool selectAll = true;
                        foreach (SelectModel item in this.teamRed.Values)
                        {
@@ -93,27 +95,36 @@ namespace MyLoLServer.Logic.Select
                        }
                        else
                        {
-
+                           //ルーム解散
+                           Destory();
                        }
-                       missionId = -1;
                    }, 20 * 1000);
                }
            }, 20 * 1000);
         }
 
+        /// <summary>
+        /// ルーム解散
+        /// </summary>
         private void Destory()
         {
             Brocast(SelectProtocol.DESTORY_BRO, null);
+            //ルームのイベント、自分を潰す
             EventUtil.destorySelect(Area);
             if (missionId != -1)
             {
                 ScheduleUtil.Instance.RemoveMission(missionId);
             }
-            EnterCount = 0;
         }
 
+        /// <summary>
+        /// クライアント閉じる
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="error"></param>
         public void ClientClose(UserToken token, string error)
         {
+            //このクライアントをネット断絶される
             Leave(token);
             Brocast(SelectProtocol.DESTORY_BRO, null);
             EventUtil.destorySelect(Area);
@@ -227,6 +238,10 @@ namespace MyLoLServer.Logic.Select
             Brocast(SelectProtocol.TALK_BRO, user.name + ":" + value);
         }
 
+        /// <summary>
+        /// ユーサの準備動作
+        /// </summary>
+        /// <param name="token"></param>
         private void Ready(UserToken token)
         {
             //ユーザーがルームにおるか
@@ -253,7 +268,6 @@ namespace MyLoLServer.Logic.Select
                 selectModel.Ready = true;
                 Brocast(SelectProtocol.READY_BRO, selectModel);
                 readyList.Add(userId);
-
                 if(readyList.Count >= teamRed.Count + teamBlue.Count)
                 {
                     //全員準備できた、戦闘開始
