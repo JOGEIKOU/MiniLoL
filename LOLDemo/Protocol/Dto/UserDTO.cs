@@ -15,9 +15,10 @@ namespace Protocol.Dto
         public int wincount;                                               //勝数
         public int losecount;                                              //負数
         public int rancount;                                                //逃げ数
+        public int[] championList;                                    //カウンター持っているチャンピオンリスト
 
         public UserDTO() { }
-        public UserDTO(string name,int id,int level ,int win,int lose,int ran)
+        public UserDTO(string name,int id,int level ,int win,int lose,int ran , int[] championlist)
         {
             this.id = id;
             this.name = name;
@@ -25,6 +26,7 @@ namespace Protocol.Dto
             this.losecount = lose;
             this.rancount = ran;
             this.level = level;
+            this.championList = championlist;
         }
     }
 }

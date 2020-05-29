@@ -14,11 +14,19 @@ public class WarningPanel : MonoBehaviour
     {
         WarinTextMsg.text = value.value;
         this.result = value.result;
+        if(value.delay > 0)
+        {
+            Invoke("Close",value.delay);
+        }
         gameObject.SetActive(true);
     }
 
     public void Close()
     {
+        if(IsInvoking("Close"))
+        {
+            CancelInvoke("Close");
+        }
         gameObject.SetActive(false);
         if(result != null)
         {

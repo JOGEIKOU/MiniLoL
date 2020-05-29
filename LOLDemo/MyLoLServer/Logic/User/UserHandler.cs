@@ -15,7 +15,6 @@ namespace MyLoLServer.Logic.User
 {
     public class UserHandler : AbsOnceHandler, HandlerInterface
     {
-        IUserBiz userBiz = BizFactory.userBiz;
 
         public void ClientClose(UserToken token, string error)
         {
@@ -80,7 +79,7 @@ namespace MyLoLServer.Logic.User
         private UserDTO Convert(UserModel userModel)
         {
             if (userModel == null) return null;
-            return new UserDTO(userModel.name, userModel.id, userModel.level, userModel.wincount, userModel.losecount, userModel.rancount);
+            return new UserDTO(userModel.name, userModel.id, userModel.level, userModel.wincount, userModel.losecount, userModel.rancount,userModel.championList.ToArray());
         }
 
         public override byte Type
