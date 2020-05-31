@@ -6,16 +6,21 @@ using Protocol.Dto;
 
 public class SelectScene : MonoBehaviour
 {
+    [SerializeField]
     private GameObject ChampionBtton;
     //キャラクターの親節
+    [SerializeField]
     private Transform ListParent;
-
     [SerializeField]
     private GameObject initMask;
-
+    //レッドチーム
+    [SerializeField]
+    private SelectGrid[] red;
+    //ブルーチーム
+    [SerializeField]
+    private SelectGrid[] blue;
     //チャンピオンIDとボタンのマップ関係
     private Dictionary<int, ChampionGird> gridMap = new Dictionary<int, ChampionGird>();
-
 
     void Start()
     {

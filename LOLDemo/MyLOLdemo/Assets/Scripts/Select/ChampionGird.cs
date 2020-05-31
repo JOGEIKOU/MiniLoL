@@ -12,7 +12,7 @@ public class ChampionGird : MonoBehaviour
     public void Init(int id)
     {
         this.id = id;
-        img.sprite = Resources.Load<Sprite>("");
+        img.sprite = Resources.Load<Sprite>("Icons" + id);
     }
 
     /// <summary>

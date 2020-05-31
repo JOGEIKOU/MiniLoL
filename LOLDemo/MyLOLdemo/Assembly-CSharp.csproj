@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Netwrok\WarningMsgMgr.cs" />
     <Compile Include="Assets\Scripts\Netwrok\WarningPanel.cs" />
     <Compile Include="Assets\Scripts\Select\ChampionGird.cs" />
+    <Compile Include="Assets\Scripts\Select\SelectGrid.cs" />
     <Compile Include="Assets\Scripts\Select\SelectHandler.cs" />
     <Compile Include="Assets\Scripts\Select\SelectScene.cs" />
     <Compile Include="Assets\Scripts\Test\Test.cs" />
