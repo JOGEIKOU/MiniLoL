@@ -51,7 +51,7 @@ public class SelectHandler : MonoBehaviour,IHander
     {
         roomDTO = dto;
         //UI refresh todo
-
+        SelectEventUtil.refreshUI(roomDTO);
     }
 
     /// <summary>
@@ -68,6 +68,7 @@ public class SelectHandler : MonoBehaviour,IHander
             {
                 i.Enter = true;
                 //UI refresh 
+                SelectEventUtil.refreshUI(roomDTO);
                 return;
             }
         }
@@ -78,6 +79,7 @@ public class SelectHandler : MonoBehaviour,IHander
             {
                 i.Enter = true;
                 //UI refresh 
+                SelectEventUtil.refreshUI(roomDTO);
                 return;
             }
         }
@@ -101,6 +103,7 @@ public class SelectHandler : MonoBehaviour,IHander
             {
                 i.Champion = model.Champion;
                 //UI refresh 
+                SelectEventUtil.refreshUI(roomDTO);
                 return;
             }
         }
@@ -111,6 +114,7 @@ public class SelectHandler : MonoBehaviour,IHander
             {
                 i.Champion = model.Champion;
                 //UI refresh 
+                SelectEventUtil.refreshUI(roomDTO);
                 return;
             }
         }
@@ -122,7 +126,7 @@ public class SelectHandler : MonoBehaviour,IHander
         if (model.userId == GameData.user.id)
         {
             //自分準備できたら、直ぐに状態変わると、クリックできない
-
+            SelectEventUtil.selected();
         }
         //レッドチーム
         foreach (SelectModel i in roomDTO.teamRed)
@@ -132,6 +136,7 @@ public class SelectHandler : MonoBehaviour,IHander
                 i.Champion = model.Champion;
                 i.Ready = true;
                 //UI refresh 
+                SelectEventUtil.refreshUI(roomDTO);
                 return;
             }
         }
@@ -143,6 +148,7 @@ public class SelectHandler : MonoBehaviour,IHander
                 i.Champion = model.Champion;
                 i.Ready = true;
                 //UI refresh 
+                SelectEventUtil.refreshUI(roomDTO);
                 return;
             }
         }

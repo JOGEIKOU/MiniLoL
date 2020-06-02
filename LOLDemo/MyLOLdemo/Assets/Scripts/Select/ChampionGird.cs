@@ -5,14 +5,16 @@ using UnityEngine.UI;
 
 public class ChampionGird : MonoBehaviour
 {
+    [SerializeField]
     private Button btn;
+    [SerializeField]
     private Image img;
     private int id = -1;
 
     public void Init(int id)
     {
         this.id = id;
-        img.sprite = Resources.Load<Sprite>("Icons" + id);
+        img.sprite = Resources.Load<Sprite>("Icons/" + id);
     }
 
     /// <summary>

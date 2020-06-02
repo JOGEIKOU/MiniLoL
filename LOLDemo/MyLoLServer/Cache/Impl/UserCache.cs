@@ -30,6 +30,12 @@ namespace MyLoLServer.Cache.Impl
             usermodel.name = msgName;
             usermodel.id = index++ ;
             usermodel.accountId = accountId;
+            List<int> list = new List<int>();
+            for(int i = 0;i<9;i++)
+            {
+                list.Add(i);
+            }
+            usermodel.championList = list;
             //クリエイトできた、カウンターIDとユーザーのセット
             accToUid.Add(accountId, usermodel.id);
             //クリエイトできた、ユーザーIDとユーザーモデルのセット

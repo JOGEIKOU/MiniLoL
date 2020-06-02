@@ -207,6 +207,5 @@ namespace MyLoLServer.Logic.Match
                 return GameProtocol.TYPE_MATCH;
             }
         }
-
     }
 }
