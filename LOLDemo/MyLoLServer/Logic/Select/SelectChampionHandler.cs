@@ -76,7 +76,6 @@ namespace MyLoLServer.Logic.Select
             }
         }
 
-
         public void ClientClose(UserToken token, string error)
         {
             int userId = GetUserId(token);

@@ -50,6 +50,7 @@ public class SelectHandler : MonoBehaviour,IHander
     private void Enter(SelectRoomDTO dto)
     {
         roomDTO = dto;
+        SendMessage("CloseMask");
         //UI refresh todo
         SelectEventUtil.refreshUI(roomDTO);
     }
@@ -91,7 +92,7 @@ public class SelectHandler : MonoBehaviour,IHander
     /// <param name="value"></param>
     private void Talk(string value)
     {
-
+        SendMessage("RcvChatMsg",value);
     }
 
     private void Select(SelectModel model)

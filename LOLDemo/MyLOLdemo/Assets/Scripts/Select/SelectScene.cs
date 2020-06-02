@@ -23,6 +23,20 @@ public class SelectScene : MonoBehaviour
     //確認ボタン
     [SerializeField]
     private Button ready;
+
+    #region Chat
+    //送信メッセージボックス
+    [SerializeField]
+    private InputField ChatInput;
+    //チャット内容展示ボックス
+    [SerializeField]
+    private Text ChatMessageShow;
+    #endregion
+
+
+
+
+
     //チャンピオンIDとボタンのマップ関係
     private Dictionary<int, ChampionGird> gridMap = new Dictionary<int, ChampionGird>();
 
@@ -61,7 +75,6 @@ public class SelectScene : MonoBehaviour
             index++;
         }
     }
-
 
     public void CloseMask()
     {
@@ -124,7 +137,7 @@ public class SelectScene : MonoBehaviour
             }
             for (int i = 0; i < roomDTO.teamBlue.Length; i++)
             {
-                red[i].Refresh(roomDTO.teamRed[i]);
+                red[i].Refresh(roomDTO.teamBlue[i]);
             }
         }
         RefreshChampionList(roomDTO);
@@ -135,4 +148,24 @@ public class SelectScene : MonoBehaviour
         ready.interactable = false;
     }
 
+    /// <summary>
+    /// チャット内容送信
+    /// </summary>
+    public void SendMsgClick()
+    {
+        if(ChatInput.text != string.Empty)
+        {
+            this.WriteMessage(GameProtocol.TYPE_SELECT, 0, SelectProtocol.TALK_CREQ, ChatInput.text);
+            ChatInput.text = string.Empty;
+        }
+    }
+
+    /// <summary>
+    /// チャット内容受ける
+    /// </summary>
+    /// <param name="value"></param>
+    public void RcvChatMsg(string value)
+    {
+        ChatMessageShow.text  += "\n" + value;
+    }
 }
