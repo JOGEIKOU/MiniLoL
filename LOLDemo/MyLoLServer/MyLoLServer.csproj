@@ -76,6 +76,8 @@
     <Compile Include="HandlerCenter.cs" />
     <Compile Include="Logic\AbsMulitHandler.cs" />
     <Compile Include="Logic\AbsOnceHandler.cs" />
+    <Compile Include="Logic\Fight\FightHandler.cs" />
+    <Compile Include="Logic\Fight\FightRoom.cs" />
     <Compile Include="Logic\HandlerInterface.cs" />
     <Compile Include="Logic\Login\LoginHandler.cs" />
     <Compile Include="Logic\Match\MatchHandler.cs" />

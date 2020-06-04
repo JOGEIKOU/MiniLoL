@@ -232,10 +232,22 @@ namespace MyLoLServer.Logic.Select
         /// <param name="value"></param>
         private void Talk(UserToken token, string value)
         {
-            //ユーザーがルームにおるか
+            //ユーザーがルームにおるか）
             if (!base.IsEntered(token)) return;
             UserModel user = GetUser(token);
+
+            //ゲーム終了ブロードキャストできるtodo
             Brocast(SelectProtocol.TALK_BRO, user.name + ":" + value);
+
+            //チーム内チャット（ここで二人ゲームする一時閉じる）
+            //if (teamRed.ContainsKey(user.id))
+            //{
+            //    WriteToUsers(teamRed.Keys.ToArray(), Type, Area, SelectProtocol.TALK_BRO, user.name + ":" + value);
+            //}
+            //else
+            //{
+            //    WriteToUsers(teamBlue.Keys.ToArray(), Type, Area, SelectProtocol.TALK_BRO, user.name + ":" + value);
+            //}
         }
 
         /// <summary>
@@ -247,6 +259,7 @@ namespace MyLoLServer.Logic.Select
             //ユーザーがルームにおるか
             if (!base.IsEntered(token)) return;
             int userId = GetUserId(token);
+            //ユーザー準備できたか
             if (readyList.Contains(userId)) return;
             SelectModel selectModel = null;
             if(teamRed.ContainsKey(userId))
@@ -289,6 +302,8 @@ namespace MyLoLServer.Logic.Select
             //戦闘モジュールに戦闘シートクリエイトを知らせ
             //todo
 
+
+            Brocast(SelectProtocol.FIGHT_BRO, null);
             //選択シーンにこのルームを削除を知らせ
             EventUtil.destorySelect(Area);
         }

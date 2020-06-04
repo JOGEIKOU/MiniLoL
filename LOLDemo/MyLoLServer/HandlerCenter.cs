@@ -11,6 +11,7 @@ using Protocol;
 using MyLoLServer.Logic.User;
 using MyLoLServer.Logic.Match;
 using MyLoLServer.Logic.Select;
+using MyLoLServer.Logic.Fight;
 
 namespace MyLoLServer
 {
@@ -20,6 +21,7 @@ namespace MyLoLServer
         HandlerInterface user;
         HandlerInterface match;
         HandlerInterface select;
+        HandlerInterface fight;
 
         public HandlerCenter()
         {
@@ -27,6 +29,7 @@ namespace MyLoLServer
             user = new UserHandler();
             match = new MatchHandler();
             select = new SelectChampionHandler();
+            fight = new FightHandler();
         }
 
         public override void ClientClose(UserToken token, string error)
@@ -59,6 +62,9 @@ namespace MyLoLServer
                     break;
                 case GameProtocol.TYPE_SELECT:
                     select.MessageReceive(token, model);
+                    break;
+                case GameProtocol.TYPE_FIGHT:
+                    fight.MessageReceive(token, model);
                     break;
                 default:
                     //未知モジュール、クライアントは違法ツールを使うかも

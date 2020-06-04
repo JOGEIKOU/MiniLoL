@@ -27,7 +27,7 @@ public class SelectGrid : MonoBehaviour
             }
             else
             {
-                _img_Head.sprite = Resources.Load<Sprite>("Icons" + model.Champion);
+                _img_Head.sprite = Resources.Load<Sprite>("Icons/" + model.Champion);
             }
         }
         else

@@ -31,11 +31,9 @@ public class SelectScene : MonoBehaviour
     //チャット内容展示ボックス
     [SerializeField]
     private Text ChatMessageShow;
+    [SerializeField]
+    private Scrollbar ChatScrollbar;
     #endregion
-
-
-
-
 
     //チャンピオンIDとボタンのマップ関係
     private Dictionary<int, ChampionGird> gridMap = new Dictionary<int, ChampionGird>();
@@ -44,6 +42,7 @@ public class SelectScene : MonoBehaviour
     {
         SelectEventUtil.selected = Selected;
         SelectEventUtil.refreshUI = RefreshUI;
+        SelectEventUtil.selectCham = SelectChampion;
         //1 mask表す　誤動作を避ける
         initMask.SetActive(true);
 
@@ -167,5 +166,20 @@ public class SelectScene : MonoBehaviour
     public void RcvChatMsg(string value)
     {
         ChatMessageShow.text  += "\n" + value;
+        ChatScrollbar.value = 0;
     }
+
+    public void SelectChampion(int id)
+    {
+        this.WriteMessage(GameProtocol.TYPE_SELECT, 0, SelectProtocol.SELECT_CREQ, id);
+    }
+
+
+    public void ReadyClick()
+    {
+        this.WriteMessage(GameProtocol.TYPE_SELECT, 0, SelectProtocol.READY_CREQ, null);
+    }
+
+
+
 }

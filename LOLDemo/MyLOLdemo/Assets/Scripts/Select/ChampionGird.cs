@@ -23,7 +23,6 @@ public class ChampionGird : MonoBehaviour
     public void Active()
     {
         btn.interactable = true;
-
     }
 
     /// <summary>
@@ -39,6 +38,7 @@ public class ChampionGird : MonoBehaviour
         if(id!= -1)
         {
             //チャンピオン選択イベント
+            SelectEventUtil.selectCham(id);
         }
     }
 

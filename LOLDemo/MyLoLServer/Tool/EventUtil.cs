@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Protocol.Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,18 @@ public delegate void CreateSelectChampion(List<int> teamRed,List<int> teamBlue);
 /// <param name="roomId"></param>
 public delegate void DestorySelectChampion(int roomId);
 
+/// <summary>
+/// 戦闘モジュールのイベントクリエイト
+/// </summary>
+/// <param name="teamRed"></param>
+/// <param name="teamBlue"></param>
+public delegate void CreateFightRoom(SelectModel[] teamRed, SelectModel[] teamBlue);
+
+/// <summary>
+/// 戦闘モジュールのルームを潰す
+/// </summary>
+/// <param name="roomId"></param>
+public delegate void DestoryFightRoom(int roomId);
 
 namespace MyLoLServer.Tool
 {
@@ -24,5 +37,9 @@ namespace MyLoLServer.Tool
         public static CreateSelectChampion createSelect;
 
         public static DestorySelectChampion destorySelect;
+
+        public static CreateFightRoom createFight;
+
+        public static DestoryFightRoom destoryFight;
     }
 }

@@ -121,7 +121,6 @@ public class SelectHandler : MonoBehaviour,IHander
         }
     }
 
-
     private void Ready(SelectModel model)
     {
         if (model.userId == GameData.user.id)
