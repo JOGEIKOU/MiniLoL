@@ -15,6 +15,7 @@ public class NetMessageUtil : MonoBehaviour
         user = GetComponent<UserHandler>();
         match = GetComponent<MatchHandler>();
         select = GetComponent<SelectHandler>();
+
     }
 
     void Update()

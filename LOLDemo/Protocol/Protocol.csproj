@@ -42,14 +42,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\BuildData.cs" />
+    <Compile Include="Constants\ChampionData.cs" />
+    <Compile Include="Constants\SkillData.cs" />
     <Compile Include="Dto\AccountInfoDTO.cs" />
     <Compile Include="Dto\FightDTO\AbsFightModel.cs" />
     <Compile Include="Dto\FightDTO\BuildModel.cs" />
     <Compile Include="Dto\FightDTO\FightPlayerModel.cs" />
+    <Compile Include="Dto\FightDTO\FightRoomModel.cs" />
     <Compile Include="Dto\FightDTO\FightSkill.cs" />
     <Compile Include="Dto\SelectModel.cs" />
     <Compile Include="Dto\SelectRoomDTO.cs" />
     <Compile Include="Dto\UserDTO.cs" />
+    <Compile Include="FightProtocol.cs" />
     <Compile Include="LoginProtocol.cs" />
     <Compile Include="MatchProtocol.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

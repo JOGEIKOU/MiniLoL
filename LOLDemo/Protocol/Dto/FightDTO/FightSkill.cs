@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Protocol.Dto.FightDTO
 {
+    [Serializable]
     public class FightSkill
     {
         public int code;
@@ -16,6 +17,31 @@ namespace Protocol.Dto.FightDTO
         public string info;                                              //スキルの説明
         public SkillTarget skilltarget;
         public SkillType skilltype;
+
+        public FightSkill() { }
+
+        public FightSkill(
+            int code,
+            int level,
+            int nextLevel,
+            int cdtime,
+            string name,
+            float range,
+            string info,
+            SkillTarget skilltarget,
+            SkillType skilltype
+            )
+        {
+            this.code = code;
+            this.level = level;
+            this.nextLevel = nextLevel;
+            this.cdtime = cdtime;
+            this.name = name;
+            this.range = range;
+            this.info = info;
+            this.skilltarget = skilltarget;
+            this.skilltype = skilltype;
+        }
     }
 
 
@@ -43,6 +69,7 @@ namespace Protocol.Dto.FightDTO
         SELF,                                                                 //自分
         TAEGET,                                                           //目標を中心に
         CURSORPOS,                                                 //カーソル位置を中心に
+        PASSIVE                                                           //パッシブスキル
     }
 
     /// <summary>

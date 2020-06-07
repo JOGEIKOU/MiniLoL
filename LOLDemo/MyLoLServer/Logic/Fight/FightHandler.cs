@@ -78,12 +78,16 @@ namespace MyLoLServer.Logic.Fight
 
         public void ClientClose(UserToken token, string error)
         {
-
+            //戦闘中判定
+            if(userRoom.ContainsKey(GetUserId(token)))
+            {
+                roomMap[userRoom[GetUserId(token)]].ClientClose(token, error);
+            }
         }
 
         public void MessageReceive(UserToken token, SokectModel message)
         {
-
+            roomMap[userRoom[GetUserId(token)]].MessageReceive(token, message);
         }
     }
 }

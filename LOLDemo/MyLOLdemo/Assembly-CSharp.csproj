@@ -61,6 +61,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Fight\FightHandler.cs" />
+    <Compile Include="Assets\Scripts\Fight\FightScene.cs" />
     <Compile Include="Assets\Scripts\Lobi\CreatePanel.cs" />
     <Compile Include="Assets\Scripts\Lobi\LobiScene.cs" />
     <Compile Include="Assets\Scripts\Lobi\MatchHandler.cs" />

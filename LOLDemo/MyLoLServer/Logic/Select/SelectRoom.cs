@@ -299,10 +299,8 @@ namespace MyLoLServer.Logic.Select
                 ScheduleUtil.Instance.RemoveMission(missionId);
                 missionId = -1;
             }
-            //戦闘モジュールに戦闘シートクリエイトを知らせ
-            //todo
-
-
+            //戦闘モジュールを知らせ、戦闘ルームをクリエイト
+            EventUtil.createFight(teamRed.Values.ToArray(), teamBlue.Values.ToArray());
             Brocast(SelectProtocol.FIGHT_BRO, null);
             //選択シーンにこのルームを削除を知らせ
             EventUtil.destorySelect(Area);

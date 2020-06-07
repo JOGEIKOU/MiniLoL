@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Protocol.Dto.FightDTO
 {
-    class FightPlayerModel:AbsFightModel
+    [Serializable]
+    public class FightPlayerModel:AbsFightModel
     {
         public int mp;                                                      //mp
         public int maxmp;                                               //最大mp
@@ -14,6 +15,6 @@ namespace Protocol.Dto.FightDTO
         public int free;                                                     //レベルアップポイント
         public int gold;                                                    //ゴルド
         public int[] itemequs;                                          //装備一覧
-        public FightSkill[] skill;                                        //ユーザースキル
+        public FightSkill[] skills;                                        //ユーザースキル
     }
 }
