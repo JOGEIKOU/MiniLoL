@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SelectScene.unity
     guid: 3cc6a07758523924e80d7dc554663467
   - enabled: 1
-    path: Assets/expscene.unity
-    guid: 3891e2a8e35006948b0880b0acae3b29
+    path: Assets/Scenes/FightScene.unity
+    guid: c9e331e585585ad49937ef804fe46f28
   m_configObjects: {}

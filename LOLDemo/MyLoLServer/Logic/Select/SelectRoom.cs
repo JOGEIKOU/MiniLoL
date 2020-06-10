@@ -23,7 +23,7 @@ namespace MyLoLServer.Logic.Select
         //今ミッションのID
         int missionId = -1;
 
-        List<int> readyList = new List<int>();
+        public List<int> readyList = new List<int>();
 
         public void Init(List<int> teamRed, List<int> teamBlue)
         {

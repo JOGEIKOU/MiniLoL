@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\Select\SelectHandler.cs" />
     <Compile Include="Assets\Scripts\Select\SelectScene.cs" />
     <Compile Include="Assets\Scripts\Test\Test.cs" />
+    <Compile Include="Assets\tempres\TestScript.cs" />
     <Compile Include="Assets\WarFogTest.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

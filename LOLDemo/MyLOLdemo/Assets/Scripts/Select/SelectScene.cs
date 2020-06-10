@@ -97,7 +97,10 @@ public class SelectScene : MonoBehaviour
         {
             foreach (SelectModel i in roomDTO.teamBlue)
             {
-                selected.Add(i.Champion);
+                if(i.Champion != -1)
+                {
+                    selected.Add(i.Champion);
+                }               
             }
         }
         //選択されたチャンピオンのGridの状態設置
@@ -125,7 +128,7 @@ public class SelectScene : MonoBehaviour
             }
             for (int i = 0; i < roomDTO.teamBlue.Length; i++)
             {
-                blue[i].Refresh(roomDTO.teamRed[i]);
+                blue[i].Refresh(roomDTO.teamBlue[i]);
             }
         }
         else

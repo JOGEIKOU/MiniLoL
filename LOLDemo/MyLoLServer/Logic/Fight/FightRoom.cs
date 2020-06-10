@@ -34,7 +34,7 @@ namespace MyLoLServer.Logic.Fight
                 this.teamBlue.Add(item.userId, Create(item));
             }
             //レッドチームの建築物id -1~-10
-            for(int i = -1; i>=3;i--)
+            for(int i = -1; i>=-3;i--)
             {
                 this.teamRed.Add(i, CreateBuild(i, Math.Abs(i)));
             }
@@ -59,6 +59,7 @@ namespace MyLoLServer.Logic.Fight
             //召喚使いデータ初期化
             player.id = model.userId;
             player.code = model.Champion;
+            player.type = ModelType.HUMAN;
             player.name = GetUser(model.userId).name;
             player.exp = 0;
             player.level = 1;

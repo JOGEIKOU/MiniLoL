@@ -9,13 +9,15 @@ public class NetMessageUtil : MonoBehaviour
     private IHander user;
     private IHander match;
     private IHander select;
+    private IHander fight;
+
     private void Start()
     {
         login = GetComponent<LoginHandler>();
         user = GetComponent<UserHandler>();
         match = GetComponent<MatchHandler>();
         select = GetComponent<SelectHandler>();
-
+        fight = GetComponent<FightHandler>();
     }
 
     void Update()
@@ -43,6 +45,9 @@ public class NetMessageUtil : MonoBehaviour
                 break;
             case GameProtocol.TYPE_SELECT:
                 select.MessageReceive(model);
+                break;
+            case GameProtocol.TYPE_FIGHT:
+                fight.MessageReceive(model);
                 break;
         }
     }

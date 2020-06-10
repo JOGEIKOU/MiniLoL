@@ -15,10 +15,10 @@ namespace Protocol.Constants
 
         static BuildData()
         {
-            Create(1, "ネクサス", 5000, 0, 50, false, true, false, 0);
-            Create(2, "タワー3", 3000, 200, 50, false, true, true, 30);
-            Create(3, "タワー2", 2000, 150, 30, true, true, false, 0);
-            Create(4, "タワー1", 1000, 100, 20, true, true, false, 0);
+            //Create(1, "ネクサス", 5000, 0, 50, false, true, false, 0);
+            Create(1, "タワー3", 3000, 200, 50, false, true, true, 30);
+            Create(2, "タワー2", 2000, 150, 30, true, true, false, 0);
+            Create(3, "タワー1", 1000, 100, 20, true, true, false, 0);
         }
 
         static void Create(int code,string name,int hp ,int atk, int def , bool initiative , bool infrared ,bool reborn, int reborntime)
