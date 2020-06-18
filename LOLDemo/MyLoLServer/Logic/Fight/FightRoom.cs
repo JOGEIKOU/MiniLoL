@@ -113,6 +113,9 @@ namespace MyLoLServer.Logic.Fight
                 case FightProtocol.ENTER_CREQ:
                     Enter(token);
                     break;
+                case FightProtocol.MOVE_CREQ:
+                    Move(token, message.GetMessage<MoveDTO>());
+                    break; 
             }
         }
 
@@ -129,6 +132,13 @@ namespace MyLoLServer.Logic.Fight
                 room.teamBlue = teamBlue.Values.ToArray();
                 Brocast(FightProtocol.START_BRO, room);
             }
+        }
+
+        private void Move(UserToken token, MoveDTO value)
+        {
+            int userId = GetUserId(token);
+            value.userId = userId;
+            Brocast(FightProtocol.MOVE_BRO, value);
         }
 
         public override byte Type

@@ -61,11 +61,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Champion\Ali.cs" />
-    <Compile Include="Assets\Scripts\Champion\AnimState.cs" />
-    <Compile Include="Assets\Scripts\Champion\ChamCtrl.cs" />
+    <Compile Include="Assets\Scripts\Fight\Champion\Ali.cs" />
+    <Compile Include="Assets\Scripts\Fight\Champion\AnimState.cs" />
+    <Compile Include="Assets\Scripts\Fight\Champion\ChamCtrl.cs" />
+    <Compile Include="Assets\Scripts\Fight\Champion\SkillGird.cs" />
     <Compile Include="Assets\Scripts\Fight\FightHandler.cs" />
     <Compile Include="Assets\Scripts\Fight\FightScene.cs" />
+    <Compile Include="Assets\Scripts\Fight\PlayerHpbar.cs" />
+    <Compile Include="Assets\Scripts\Fight\SpriteSlider.cs" />
     <Compile Include="Assets\Scripts\Lobi\CreatePanel.cs" />
     <Compile Include="Assets\Scripts\Lobi\LobiScene.cs" />
     <Compile Include="Assets\Scripts\Lobi\MatchHandler.cs" />
@@ -90,6 +93,8 @@
     <Compile Include="Assets\Scripts\Select\SelectScene.cs" />
     <Compile Include="Assets\Scripts\Test\Test.cs" />
     <Compile Include="Assets\Scripts\Test\WarFogTest.cs" />
+    <Compile Include="Assets\Scripts\Util\FogOfWarEffect.cs" />
+    <Compile Include="Assets\Scripts\Util\SceneProcess.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Shader\WarFog.shader" />
@@ -102,12 +107,15 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Shader\FogOfWarBlur.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+    <None Include="Assets\Shader\FogOfWarEffect.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\Shader\FogOfWarMinimap.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Xyhai/OneDrive/桌面/MyStudy/GitProject/MyDemo/xyhaiwsq/LOLDemo/MyLOLdemo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

@@ -22,3 +22,15 @@ C:\Users\Xyhai\OneDrive\桌面\MyStudy\MyDemo\xyhaiwsq\LOLDemo\MyLoLServer\obj\D
 C:\Users\Xyhai\OneDrive\桌面\MyStudy\MyDemo\xyhaiwsq\LOLDemo\MyLoLServer\obj\Debug\MyLoLServer.csproj.CopyComplete
 C:\Users\Xyhai\OneDrive\桌面\MyStudy\MyDemo\xyhaiwsq\LOLDemo\MyLoLServer\obj\Debug\MyLoLServer.exe
 C:\Users\Xyhai\OneDrive\桌面\MyStudy\MyDemo\xyhaiwsq\LOLDemo\MyLoLServer\obj\Debug\MyLoLServer.pdb
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\MyLoLServer\bin\Debug\MyLoLServer.exe.config
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\MyLoLServer\bin\Debug\MyLoLServer.exe
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\MyLoLServer\bin\Debug\MyLoLServer.pdb
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\MyLoLServer\bin\Debug\NetFramework.dll
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\MyLoLServer\bin\Debug\Protocol.dll
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\MyLoLServer\bin\Debug\NetFramework.pdb
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\MyLoLServer\bin\Debug\Protocol.pdb
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\MyLoLServer\obj\Debug\MyLoLServer.csprojAssemblyReference.cache
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\MyLoLServer\obj\Debug\MyLoLServer.csproj.CoreCompileInputs.cache
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\MyLoLServer\obj\Debug\MyLoLServer.csproj.CopyComplete
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\MyLoLServer\obj\Debug\MyLoLServer.exe
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\MyLoLServer\obj\Debug\MyLoLServer.pdb
