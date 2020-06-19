@@ -19,6 +19,8 @@ public class ChamCtrl : MonoBehaviour
     //hp sliderbar
     [SerializeField]
     private PlayerHpbar hpbar;
+    [SerializeField]
+    private MeshRenderer head;
 
     private int state = AnimState.IDLE;
 
@@ -97,10 +99,22 @@ public class ChamCtrl : MonoBehaviour
         mask.SetActive(state);
     }
 
-    public void InitPlayerData(FightPlayerModel data)
+    public void InitPlayerData(FightPlayerModel data,int myteam)
     {
         Debug.Log(data.name);
         this.data = data;
-        hpbar.InitHpbar(data);
+        hpbar.InitHpbar(data,data.team == myteam);
+        head.material.SetTexture("_MainTex", Resources.Load<Texture>("Icons/" + data.code));
+        //もし自分のチームではない場合、マスクを消す
+        if(data.team != myteam)
+        {
+            gameObject.layer = LayerMask.NameToLayer("enemy");
+            mask.SetActive(false);
+        }
+        else
+        {
+            gameObject.layer = LayerMask.NameToLayer("friend");
+            Destroy(GetComponent<Ward>());
+        }
     }
 }

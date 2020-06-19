@@ -24,5 +24,6 @@ namespace Protocol.Dto.FightDTO
         public float atkSpeed;                                    //攻撃速度
         public float atkRange;                                    //攻撃距離
         public float visionRange;                               //視野範囲
+        public int team;                                               //チームを分割
     }
 }

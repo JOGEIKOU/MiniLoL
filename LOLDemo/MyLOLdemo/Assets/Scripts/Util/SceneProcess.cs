@@ -32,6 +32,10 @@ public class SceneProcess : MonoBehaviour, IPointerClickHandler
             //カメラ→移動
             FightScene.Instance.CameraHMove(-1);
         }
+        else
+        {
+            FightScene.Instance.CameraHMove(0);
+        }
 
         if (pos.y<10)
         {

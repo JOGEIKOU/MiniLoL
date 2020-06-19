@@ -10,6 +10,8 @@ public class PlayerHpbar : MonoBehaviour
     private SpriteSlider hp;
     [SerializeField]
     private TextMesh nameTxt;
+    [SerializeField]
+    private SpriteRenderer sr;
 
 
     private void Update()
@@ -20,10 +22,15 @@ public class PlayerHpbar : MonoBehaviour
         }
     }
 
-    public void InitHpbar(FightPlayerModel model)
+    public void InitHpbar(FightPlayerModel model,bool isFriend)
     {
+        Debug.Log(GetType()+ "InitHpbar");
         hp.Value = model.hp / model.maxHp;
         nameTxt.text = model.name;
+        if(isFriend)
+        {
+            sr.color = new Color(255, 255, 255, 0);
+        }
     }
 
     public void HpbarChange(float value)

@@ -6,17 +6,29 @@ using UnityEngine;
 
 public class FightHandler : MonoBehaviour,IHander
 {
-    private FightRoomModel room;
+    FightRoomModel room;
 
+    /// <summary>
+    /// レッドチームタワーの初期点
+    /// </summary>
     [SerializeField]
     private Transform[] redPoss;
 
+    /// <summary>
+    /// レッドチームチャンピオンの初期点
+    /// </summary>
     [SerializeField]
     private Transform redStartPos;
 
+    /// <summary>
+    /// ブルーチームタワーの初期点
+    /// </summary>
     [SerializeField]
     private Transform[] bluePoss;
 
+    /// <summary>
+    /// ブルーチームチャンピオンの初期点
+    /// </summary>
     [SerializeField]
     private Transform blueStartPos;
 
@@ -42,6 +54,28 @@ public class FightHandler : MonoBehaviour,IHander
     private void StartFight(FightRoomModel value)
     {
         room = value;
+
+        int myteam = -1;
+        foreach (AbsFightModel item in value.teamRed)
+        {
+            if(item.id == GameData.user.id)
+            {
+                myteam = item.team;
+            }
+        }
+
+        if(myteam == -1)
+        {
+            foreach (AbsFightModel item in value.teamBlue)
+            {
+                if (item.id == GameData.user.id)
+                {
+                    myteam = item.team;
+                }
+            }
+        }
+
+
         Debug.Log("キャラクターと建築物初期化");
         //レッドチームのチャンピオンと建築物生成
         foreach(AbsFightModel i in value.teamRed)
@@ -51,8 +85,9 @@ public class FightHandler : MonoBehaviour,IHander
             {
                 Debug.Log("red champion");
                 go = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/Pre_Player/" + i.code),redStartPos.position + new Vector3(Random.Range(1,1),0,Random.Range(1,1)),redStartPos.rotation);
+
                 ChamCtrl cc = go.GetComponent<ChamCtrl>();
-                cc.InitPlayerData((FightPlayerModel)i);
+                cc.InitPlayerData((FightPlayerModel)i,myteam);
             }
             else
             {
@@ -76,7 +111,7 @@ public class FightHandler : MonoBehaviour,IHander
                 Debug.Log("blue champion");
                 go = (GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/Pre_Player/" + i.code),blueStartPos.position + new Vector3(Random.Range(1, 1), 0, Random.Range(1, 1)), blueStartPos.rotation);
                 ChamCtrl cc = go.GetComponent<ChamCtrl>();
-                cc.InitPlayerData((FightPlayerModel)i);
+                cc.InitPlayerData((FightPlayerModel)i,myteam);
             }
             else
             {
@@ -92,6 +127,10 @@ public class FightHandler : MonoBehaviour,IHander
         }
     }
 
+    /// <summary>
+    /// チャンピオン移動
+    /// </summary>
+    /// <param name="value"></param>
     private void ChamMove(MoveDTO value)
     {
         Debug.Log("チャンピオン移動");

@@ -37,6 +37,8 @@ namespace MyLoLServer
             Console.WriteLine("クライアント断絶しました。");
             select.ClientClose(token, error);
             match.ClientClose(token, error);
+            fight.ClientClose(token, error);
+
             user.ClientClose(token, error);
             login.ClientClose(token,error);
         }
