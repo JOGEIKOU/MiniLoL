@@ -44,10 +44,15 @@
   <ItemGroup>
     <Compile Include="Constants\BuildData.cs" />
     <Compile Include="Constants\ChampionData.cs" />
+    <Compile Include="Constants\ISkill.cs" />
     <Compile Include="Constants\SkillData.cs" />
+    <Compile Include="Constants\SkillProcessMap.cs" />
+    <Compile Include="Constants\Skill\SkillAttack.cs" />
     <Compile Include="Dto\AccountInfoDTO.cs" />
     <Compile Include="Dto\FightDTO\AbsFightModel.cs" />
+    <Compile Include="Dto\FightDTO\AttackDTO.cs" />
     <Compile Include="Dto\FightDTO\BuildModel.cs" />
+    <Compile Include="Dto\FightDTO\DamageDTO.cs" />
     <Compile Include="Dto\FightDTO\FightPlayerModel.cs" />
     <Compile Include="Dto\FightDTO\FightRoomModel.cs" />
     <Compile Include="Dto\FightDTO\FightSkill.cs" />

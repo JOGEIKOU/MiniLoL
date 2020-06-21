@@ -15,6 +15,18 @@ namespace Protocol.Dto.FightDTO
         public int free;                                                     //レベルアップポイント
         public int gold;                                                    //ゴルド
         public int[] itemequs;                                          //装備一覧
-        public FightSkill[] skills;                                        //ユーザースキル
+        public FightSkill[] skills;                                      //ユーザースキル
+
+        public int SkillLevel(int code)
+        {
+            foreach (FightSkill item in skills)
+            {
+                if(item.code == code)
+                {
+                    return item.level;
+                }
+            }
+            return -1;
+        }
     }
 }

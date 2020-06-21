@@ -32,8 +32,8 @@ namespace MyLoLServer.Logic.Fight
             //enterCount = new ConcurrentInt(teamRed.Length + teamBlue.Length);
             this.teamRed.Clear();
             this.teamBlue.Clear();
-
             off.Clear();
+
             //チャンピオンデータ初期化
             foreach (var item in teamRed)
             {
@@ -137,11 +137,17 @@ namespace MyLoLServer.Logic.Fight
             switch(message.command)
             {
                 case FightProtocol.ENTER_CREQ:
-                    Enter(token);
+                    EnterBattle(token);
                     break;
                 case FightProtocol.MOVE_CREQ:
                     Move(token, message.GetMessage<MoveDTO>());
-                    break; 
+                    break;
+                case FightProtocol.ATTACK_CREQ:
+                    Attack(token, message.GetMessage<int>());
+                    break;
+                case FightProtocol.DAMAGE_CREQ:
+                    Damage(token, message.GetMessage<DamageDTO>());
+                    break;
             }
         }
 
@@ -169,6 +175,80 @@ namespace MyLoLServer.Logic.Fight
             int userId = GetUserId(token);
             value.userId = userId;
             Brocast(FightProtocol.MOVE_BRO, value);
+        }
+
+        private void Attack(UserToken token,int value)
+        {
+            AttackDTO atk = new AttackDTO();
+            atk.userId = GetUserId(token);
+            atk.targetId = value;
+            Brocast(FightProtocol.ATTACK_BRO, atk);
+        }
+
+        AbsFightModel GetPlayer(int userId)
+        {
+            if(teamRed.ContainsKey(userId))
+            {
+                return teamRed[userId];
+            }
+            return teamBlue[userId];
+        }
+
+        private void Damage(UserToken token ,DamageDTO value)
+        {
+            int userId = GetUserId(token);
+            AbsFightModel atkmodel;
+            int skilllevel = 0;
+            //チャンピオンもしくはミニオンを判断
+            if(value.userId >= 0)
+            {
+                if (value.userId != userId) return;
+                atkmodel = GetPlayer(userId);
+                if(value.skill >0)
+                {
+                    skilllevel = (atkmodel as FightPlayerModel).SkillLevel(value.skill);
+                    if(skilllevel == -1)
+                    {
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                //todo
+                atkmodel = GetPlayer(userId);
+            }
+
+            //ダメージ計算
+            if (!SkillProcessMap.Has(value.skill)) return;
+            ISkill skill = SkillProcessMap.Get(value.skill);
+            List<int[]> damages = new List<int[]>();
+            foreach (int[] item in value.target)
+            {
+                AbsFightModel target = GetPlayer(item[0]);
+                skill.Damage(skilllevel, ref atkmodel, ref target, ref damages);
+                if(target.hp == 0)
+                {
+                    switch(target.type)
+                    {
+                        case ModelType.HUMAN:
+                            if(target.id>0)
+                            {
+                                //kill champion
+                            }
+                            else
+                            {
+                                //kill minion
+                            }
+                            break;
+                        case ModelType.BUILD:
+                            //kill tower and get gold
+                            break;
+                    }
+                }
+            }
+            value.target = damages.ToArray();
+            Brocast(FightProtocol.DAMAGE_BRO, value);
         }
 
         public override byte Type
