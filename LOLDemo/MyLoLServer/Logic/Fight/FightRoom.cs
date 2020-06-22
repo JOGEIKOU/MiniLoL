@@ -148,6 +148,12 @@ namespace MyLoLServer.Logic.Fight
                 case FightProtocol.DAMAGE_CREQ:
                     Damage(token, message.GetMessage<DamageDTO>());
                     break;
+                case FightProtocol.SKILL_UP_CREQ:
+                    SkillLevelUp(token, message.GetMessage<int>());
+                    break;
+                case FightProtocol.SKILL_CREQ:
+                    Skill(token, message.GetMessage<SkillAtkModel>());
+                    break;
             }
         }
 
@@ -250,6 +256,49 @@ namespace MyLoLServer.Logic.Fight
             value.target = damages.ToArray();
             Brocast(FightProtocol.DAMAGE_BRO, value);
         }
+
+        private void Skill(UserToken token,SkillAtkModel value)
+        {
+            value.userId = GetUserId(token);
+            Brocast(FightProtocol.SKILL_BRO, value);
+        }
+
+        private void SkillLevelUp(UserToken token,int value)
+        {
+            int userId = GetUserId(token);
+            FightPlayerModel player;
+            if(teamRed.ContainsKey(userId))
+            {
+                player = (FightPlayerModel)teamRed[userId];
+            }
+            else
+            {
+                player = (FightPlayerModel)teamBlue[userId];
+            }
+
+            if(player.free > 0)
+            {
+                foreach (FightSkill item in player.skills)
+                {
+                    if(item.code == value)
+                    {
+                        if(item.nextLevel != -1 && item.nextLevel <= player.level)
+                        {
+                            player.free = -1;
+                            int level = item.level + 1;
+                            SkillLevelData data = SkillData.skillMap[value].levels[level];
+                            item.nextLevel = data.Level;
+                            item.range = data.Range;
+                            item.cdtime = data.Time;
+                            item.level = level;
+                            Write(token, FightProtocol.SKILL_UP_SRES, item);
+                        }
+                        return;
+                    }
+                }
+            }
+        }
+
 
         public override byte Type
         {

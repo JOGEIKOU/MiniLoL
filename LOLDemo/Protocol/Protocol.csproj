@@ -57,6 +57,7 @@
     <Compile Include="Dto\FightDTO\FightRoomModel.cs" />
     <Compile Include="Dto\FightDTO\FightSkill.cs" />
     <Compile Include="Dto\FightDTO\MoveDTO.cs" />
+    <Compile Include="Dto\FightDTO\SkillAtkModel.cs" />
     <Compile Include="Dto\SelectModel.cs" />
     <Compile Include="Dto\SelectRoomDTO.cs" />
     <Compile Include="Dto\UserDTO.cs" />

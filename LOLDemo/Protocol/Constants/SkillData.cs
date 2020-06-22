@@ -51,7 +51,6 @@ namespace Protocol.Constants
         }
     }
 
-
     public partial class SkillDataModel
     {
         public int code;

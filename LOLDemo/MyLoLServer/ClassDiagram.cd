@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="MyLoLServer.Biz.BizFactory" Collapsed="true">
-    <Position X="25.25" Y="3" Width="1.5" />
+    <Position X="21.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
       <FileName>Biz\BizFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MyLoLServer.Biz.Impl.AccountBiz" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="20" Y="3" Width="1.5" />
+    <Position X="16.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAEAAAAAQAACQAAA=</HashCode>
       <FileName>Biz\Impl\AccountBiz.cs</FileName>
@@ -16,7 +16,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="MyLoLServer.Biz.Impl.UserBiz" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="21.75" Y="6" Width="1.5" />
+    <Position X="18.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAWAAAAAAAAAAAAAABAAAAAAAgBAAAAAAAAAAAAA=</HashCode>
       <FileName>Biz\Impl\UserBiz.cs</FileName>
@@ -24,14 +24,14 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="MyLoLServer.Cache.CacheFactory" Collapsed="true">
-    <Position X="20" Y="4" Width="1.5" />
+    <Position X="16.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
       <FileName>Cache\CacheFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MyLoLServer.Cache.Impl.AccountCache" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="21.75" Y="3" Width="1.5" />
+    <Position X="18.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIIAAgBAAAAAAAAAAAAAEAAIAACAAAAAAAAQAAIBAAA=</HashCode>
       <FileName>Cache\Impl\AccountCache.cs</FileName>
@@ -39,7 +39,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="MyLoLServer.Cache.Impl.UserCache" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="23.5" Y="6" Width="1.5" />
+    <Position X="20" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAWABAgAAEACAAAAAAMAAAAAAEhAQAAAAAAABAAA=</HashCode>
       <FileName>Cache\Impl\UserCache.cs</FileName>
@@ -47,73 +47,73 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="MyLoLServer.Dao.Model.AccountModel" Collapsed="true">
-    <Position X="23.5" Y="3" Width="1.5" />
+    <Position X="20" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQgAAAgA=</HashCode>
       <FileName>Dao\Model\AccountModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MyLoLServer.Dao.Model.UserModel" Collapsed="true">
-    <Position X="25.25" Y="6" Width="1.5" />
+    <Position X="21.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAIAAACAAAAEAAAAABAAAEEAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Dao\Model\UserModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MyLoLServer.HandlerCenter" Collapsed="true">
-    <Position X="20" Y="5" Width="1.5" />
+    <Position X="16.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAAAAACAAAAAAAAAIAAABIAAAAAAAAEQI=</HashCode>
       <FileName>HandlerCenter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MyLoLServer.Program" Collapsed="true">
-    <Position X="23.5" Y="5" Width="1.5" />
+    <Position X="20" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyLoLServer.Logic.AbsMulitHandler">
-    <Position X="10.75" Y="4.25" Width="1.5" />
+  <Class Name="MyLoLServer.Logic.AbsMulitHandler" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAEEAABAACAAAAAAAAA=</HashCode>
       <FileName>Logic\AbsMulitHandler.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MyLoLServer.Logic.AbsOnceHandler" Collapsed="true">
-    <Position X="10.75" Y="3" Width="1.5" />
+    <Position X="7.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAAAAAAAAAAgAAACAACAAAAAEQAAAQEABQE=</HashCode>
       <FileName>Logic\AbsOnceHandler.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyLoLServer.Logic.Fight.FightHandler">
-    <Position X="10.75" Y="7.5" Width="1.5" />
+  <Class Name="MyLoLServer.Logic.Fight.FightHandler" Collapsed="true">
+    <Position X="7.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAQAAAAAAAAACAAAAACAIAAEAEAAAAAAABAAA=</HashCode>
       <FileName>Logic\Fight\FightHandler.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="MyLoLServer.Logic.Fight.FightRoom">
-    <Position X="8.25" Y="7.5" Width="1.5" />
+  <Class Name="MyLoLServer.Logic.Fight.FightRoom" Collapsed="true">
+    <Position X="5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAIAAAAAAAACAAAAAAA=</HashCode>
+      <HashCode>EAAEIASAQICAAAAAAAEAAAAAAYIACFAAAQACAAQBAAA=</HashCode>
       <FileName>Logic\Fight\FightRoom.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="MyLoLServer.Logic.Login.LoginHandler">
-    <Position X="7" Y="4.25" Width="1.5" />
+  <Class Name="MyLoLServer.Logic.Login.LoginHandler" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAAAAEAAAAAAAAAAIAAAAIAQAAAAAAEAA=</HashCode>
       <FileName>Logic\Login\LoginHandler.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="MyLoLServer.Logic.Match.MatchHandler">
-    <Position X="14.5" Y="4.25" Width="1.5" />
+  <Class Name="MyLoLServer.Logic.Match.MatchHandler" Collapsed="true">
+    <Position X="9.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAQAAAAAAAAAAAAAAACAMEAAAEAQAAAAABAAA=</HashCode>
       <FileName>Logic\Match\MatchHandler.cs</FileName>
@@ -121,30 +121,30 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="MyLoLServer.Logic.Match.MatchRoom" Collapsed="true">
-    <Position X="21.75" Y="5" Width="1.5" />
+    <Position X="18.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAgg=</HashCode>
       <FileName>Logic\Match\MatchRoom.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyLoLServer.Logic.Select.SelectChampionHandler">
-    <Position X="16.5" Y="4.25" Width="1.5" />
+  <Class Name="MyLoLServer.Logic.Select.SelectChampionHandler" Collapsed="true">
+    <Position X="11.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAQAAAAAAAAACAAAAACAIAAEAEAAAAAAABAAA=</HashCode>
       <FileName>Logic\Select\SelectChampionHandler.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="MyLoLServer.Logic.Select.SelectRoom">
-    <Position X="12.75" Y="7.5" Width="1.5" />
+  <Class Name="MyLoLServer.Logic.Select.SelectRoom" Collapsed="true">
+    <Position X="9.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAQCBAgAEAABCAAAAAAAIAABAAAUACAAAAAAk=</HashCode>
       <FileName>Logic\Select\SelectRoom.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="MyLoLServer.Logic.User.UserHandler">
-    <Position X="4.75" Y="4.25" Width="1.5" />
+  <Class Name="MyLoLServer.Logic.User.UserHandler" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQIAAAAAAAIAARAAAAAIAAAAIAQAAAAAAAAA=</HashCode>
       <FileName>Logic\User\UserHandler.cs</FileName>
@@ -152,112 +152,112 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="MyLoLServer.Tool.ConcurrentInt" Collapsed="true">
-    <Position X="21.75" Y="4" Width="1.5" />
+    <Position X="18.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAIAAABAAAAIAAAAAQAAAAACAAAAAAAAAQAAA=</HashCode>
       <FileName>Tool\ConcurrentInt.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MyLoLServer.Tool.EventUtil" Collapsed="true">
-    <Position X="23.5" Y="4" Width="1.5" />
+    <Position X="20" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAABAIAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tool\EventUtil.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MyLoLServer.Tool.ExecutorPool" Collapsed="true">
-    <Position X="25.25" Y="4" Width="1.5" />
+    <Position X="21.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIAEAAAAAABAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Tool\ExecutorPool.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MyLoLServer.Tool.ScheduleUtil" Collapsed="true">
-    <Position X="25.25" Y="5" Width="1.5" />
+    <Position X="21.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEQAAAAAgAAAAAACAAAAAAAAAEgAAAAAQIAAAAABQAA=</HashCode>
       <FileName>Tool\ScheduleUtil.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MyLoLServer.Tool.TimeTaskModel" Collapsed="true">
-    <Position X="20" Y="6" Width="1.5" />
+    <Position X="16.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAgI=</HashCode>
       <FileName>Tool\TimeTaskModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="MyLoLServer.Biz.IAccountBiz" Collapsed="true">
-    <Position X="21.75" Y="7.25" Width="1.5" />
+    <Position X="18.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAEAAAAAQAACAAAA=</HashCode>
       <FileName>Biz\IAccountBiz.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="MyLoLServer.Biz.IUserBiz" Collapsed="true">
-    <Position X="25.25" Y="7.25" Width="1.5" />
+    <Position X="21.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAWAAAAAAAAAAAAAABAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Biz\IUserBiz.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="MyLoLServer.Cache.IAccountCache" Collapsed="true">
-    <Position X="23.5" Y="7.25" Width="1.5" />
+    <Position X="20" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIIAAgAAAAAAAAAAAAAAEAAIAACAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>Cache\IAccountCache.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="MyLoLServer.Cache.IUserCache" Collapsed="true">
-    <Position X="20" Y="8" Width="1.5" />
+    <Position X="16.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAWAAAgAAAACAAAAAAIAAAAAAEhAAAAAAAAAAAAA=</HashCode>
       <FileName>Cache\IUserCache.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="MyLoLServer.Logic.HandlerInterface" Collapsed="true">
-    <Position X="20" Y="7.25" Width="1.5" />
+    <Position X="16.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Logic\HandlerInterface.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Delegate Name="MyLoLServer.Tool.ExecutorDelegate">
-    <Position X="20" Y="9.75" Width="1.5" />
+  <Delegate Name="MyLoLServer.Tool.ExecutorDelegate" Collapsed="true">
+    <Position X="16.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tool\ExecutorPool.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Delegate Name="MyLoLServer.Tool.TimeEvent" Collapsed="true">
-    <Position X="21.75" Y="9.75" Width="1.5" />
+    <Position X="18.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tool\ScheduleUtil.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Delegate Name="CreateSelectChampion" Collapsed="true">
-    <Position X="21.75" Y="9" Width="1.5" />
+    <Position X="18.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tool\EventUtil.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Delegate Name="DestorySelectChampion" Collapsed="true">
-    <Position X="25.25" Y="9" Width="1.5" />
+    <Position X="21.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tool\EventUtil.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Delegate Name="CreateFightRoom" Collapsed="true">
-    <Position X="20" Y="9" Width="1.5" />
+    <Position X="16.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIABAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tool\EventUtil.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Delegate Name="DestoryFightRoom" Collapsed="true">
-    <Position X="23.5" Y="9" Width="1.5" />
+    <Position X="20" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tool\EventUtil.cs</FileName>

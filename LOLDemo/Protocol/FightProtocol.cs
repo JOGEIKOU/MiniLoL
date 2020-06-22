@@ -22,7 +22,7 @@ namespace Protocol
         public const int DAMAGE_CREQ = 8;                                            //ダメージイベント請求
         public const int DAMAGE_BRO = 9;                                               //ブロードキャスト
 
-        public const int SKILL_CREQ = 6;                                                   //スキル発動請求
-        public const int SKILL_BRO = 7;                                                      //ブロードキャスト
+        public const int SKILL_CREQ = 10;                                                   //スキル発動請求
+        public const int SKILL_BRO = 11;                                                      //ブロードキャスト
     }
 }
