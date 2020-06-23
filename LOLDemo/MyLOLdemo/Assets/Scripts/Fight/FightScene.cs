@@ -102,7 +102,6 @@ public class FightScene : MonoBehaviour
         myChampion = champion;
         head.sprite = Resources.Load<Sprite>("Icons/" + model.code);
         hpSlider.value = model.hp / model.maxHp;
-        mpSlider.value = model.mp / model.maxmp;
         nameTxt.text = ChampionData.chamMap[model.code].name;
         LevelText.text = model.level.ToString();
         int i = 0;

@@ -27,7 +27,7 @@ public class SkillGird : MonoBehaviour
     public void InitSkill(FightSkill skill)
     {
         this.skill = skill;
-        Sprite sp = Resources.Load<Sprite>("Skillicon/" + skill.code);
+        Sprite sp = Resources.Load<Sprite>("Skillicon/1_" + skill.code);
         Background.sprite = sp;
         mask.gameObject.SetActive(true);
     }

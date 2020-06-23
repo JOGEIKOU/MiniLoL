@@ -69,7 +69,7 @@ public class SelectScene : MonoBehaviour
             grid.Init(i);
             btn.transform.parent = ListParent;
             btn.transform.localScale = Vector3.one;
-            btn.transform.localPosition = new Vector3(-390 +  110 * (index % 8), 155 + index / 8 * (-110), 0);
+            btn.transform.localPosition = new Vector3(-145 +  75 * (index % 5), 100 + index / 5 * (-75), 0);
             gridMap.Add(i, grid);
             index++;
         }
