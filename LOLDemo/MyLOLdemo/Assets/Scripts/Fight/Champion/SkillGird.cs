@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Protocol;
 
 public class SkillGird : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class SkillGird : MonoBehaviour
     [SerializeField]
     private  Image Background;
 
-    private FightSkill skill;
+    public FightSkill skill;
 
     private bool sclied = false;
 
@@ -46,6 +47,11 @@ public class SkillGird : MonoBehaviour
             }
             mask.fillAmount = currentTime / maxTime;
         }
+    }
+
+    public void SkillChange(FightSkill skill)
+    {
+        this.skill = skill;
     }
 
     public void SetMask(int time)
@@ -87,6 +93,15 @@ public class SkillGird : MonoBehaviour
         //tipを閉じる
     }
 
+    public void PointerClick()
+    {
+        if(currentTime >0)
+        {
+            return;
+        }
+        FightScene.Instance.skill = skill.code;
+    }
+
     public void SetBtnState(bool state)
     {
         LevelUpBtn.interactable = state;
@@ -95,6 +110,6 @@ public class SkillGird : MonoBehaviour
     public void LevelUp()
     {
         //サーバーへメッセージ送信、スキルレベルアップ請求
-
+        this.WriteMessage(GameProtocol.TYPE_FIGHT, 0, FightProtocol.SKILL_UP_CREQ, skill.code);
     }
 }

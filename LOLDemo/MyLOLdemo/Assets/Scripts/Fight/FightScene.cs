@@ -43,7 +43,10 @@ public class FightScene : MonoBehaviour
 
     #endregion
 
-    private GameObject myChampion;
+    //マウスleftclick　スキルID
+    public int skill = -1;
+
+    public ChamCtrl myChampion;
 
     private Camera mainCamera;
 
@@ -60,10 +63,10 @@ public class FightScene : MonoBehaviour
 
     private void Update()
     {
-        switch(cameraH)
+        switch (cameraH)
         {
             case 1:
-                if(mainCamera.transform.position.z < 150)
+                if (mainCamera.transform.position.z < 150)
                 {
                     mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z + cameraH);
                 }
@@ -97,7 +100,7 @@ public class FightScene : MonoBehaviour
     /// 表すデータを初期化
     /// </summary>
     /// <param name="model"></param>
-    public void InitView(FightPlayerModel model , GameObject champion)
+    public void InitView(FightPlayerModel model, ChamCtrl champion)
     {
         myChampion = champion;
         head.sprite = Resources.Load<Sprite>("Icons/" + model.code);
@@ -108,6 +111,32 @@ public class FightScene : MonoBehaviour
         foreach (FightSkill item in model.skills)
         {
             skills[i].InitSkill(item);
+            i++;
+        }
+    }
+
+    public void RefreshLevelUp()
+    {
+        int i = 0;
+        foreach (FightSkill item in myChampion.data.skills)
+        {
+            if (item.nextLevel <= myChampion.data.level)
+            {
+                if(myChampion.data.free > 0)
+                {
+                    skills[i].SetBtnState(true);
+                }
+                else
+                {
+                    skills[i].SetBtnState(false);
+                }
+            }
+            else
+            {
+                skills[i].SetBtnState(false);
+            }
+            skills[i].SkillChange(item);
+            skills[i].SetMask(0);
             i++;
         }
     }
@@ -137,12 +166,58 @@ public class FightScene : MonoBehaviour
             cameraV = dir;
     }
 
+    /// <summary>
+    /// 左クリック
+    /// </summary>
+    /// <param name="position"></param>
+    public void leftClick(Vector2 position)
+    {
+        if (skill == -1) return;
+        Ray ray = mainCamera.ScreenPointToRay(position);
+        RaycastHit[] hits = Physics.RaycastAll(ray, 200);
+        List<Transform> list = new List<Transform>();
+        Vector3 tigger = Vector3.zero;
+        for(int i = hits.Length-1;i>=0;i--)
+        {
+            RaycastHit item = hits[i];
+
+            if(item.transform.gameObject.layer == LayerMask.NameToLayer("Water"))
+            {
+                tigger = item.point;
+            }
+            list.Add(item.transform);
+        }
+        myChampion.BaseSkill(skill, list.ToArray(), tigger);
+        skill = -1;
+    }
+
+    /// <summary>
+    /// 右クリック
+    /// </summary>
+    /// <param name="position">ポジション</param>
     public void rightClick(Vector2 position)
     {
         Ray ray = mainCamera.ScreenPointToRay(position);
         RaycastHit[] hits = Physics.RaycastAll(ray, 200);
-        foreach (RaycastHit item in hits)
+        for (int i = hits.Length - 1; i >= 0; i--)
         {
+            RaycastHit item = hits[i];
+
+            //敵の陣の場合、攻撃
+            if (item.transform.gameObject.layer == LayerMask.NameToLayer("enemy"))
+            {
+                ChamCtrl ctrl = item.transform.GetComponent<ChamCtrl>();
+                if (Vector3.Distance(myChampion.transform.position, item.transform.position) < ctrl.data.atkRange)
+                {
+                    //ルナーンの効果なら、data.idは敵のID配列
+                    this.WriteMessage(GameProtocol.TYPE_FIGHT, 0, FightProtocol.ATTACK_CREQ, ctrl.data.id);
+                    return;
+                }
+                continue;
+            }
+
+            //自分の陣の単位を無視
+            //地面なら路線を探す
             if (item.transform.gameObject.layer == LayerMask.NameToLayer("Water"))
             {
                 MoveDTO dto = new MoveDTO();
@@ -151,9 +226,22 @@ public class FightScene : MonoBehaviour
                 dto.z = item.point.z;
                 this.WriteMessage(GameProtocol.TYPE_FIGHT, 0, FightProtocol.MOVE_CREQ, dto);
                 return;
-
             }
         }
     }
 
+    /// <summary>
+    /// スキルマスク
+    /// </summary>
+    /// <param name="code">スキル主キー</param>
+    public void SkillMask(int code)
+    {
+        foreach (SkillGird item in skills)
+        {
+            if(item.skill.code == code)
+            {
+                item.SetMask(item.skill.cdtime);
+            }
+        }
+    }
 }

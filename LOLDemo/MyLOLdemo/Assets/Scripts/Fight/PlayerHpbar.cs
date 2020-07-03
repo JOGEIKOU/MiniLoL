@@ -24,12 +24,12 @@ public class PlayerHpbar : MonoBehaviour
 
     public void InitHpbar(FightPlayerModel model,bool isFriend)
     {
-        Debug.Log(GetType()+ "InitHpbar");
+        //Debug.Log(GetType()+ "InitHpbar");
         hp.Value = model.hp / model.maxHp;
         nameTxt.text = model.name;
         if(isFriend)
         {
-            sr.color = new Color(255, 255, 255, 0);
+            sr.color = new Color(255, 255, 255, 100);
         }
     }
 

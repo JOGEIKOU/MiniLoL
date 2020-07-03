@@ -81,7 +81,7 @@ public class ChamCtrl : MonoBehaviour
     }
 
     /// <summary>
-    /// スキル発動請求
+    /// サーバにスキル発動請求
     /// </summary>
     /// <param name="code">スキル種類</param>
     /// <param name="targets">目標群</param>
@@ -89,6 +89,22 @@ public class ChamCtrl : MonoBehaviour
     {
 
     }
+
+    /// <summary>
+    /// スキル終了
+    /// </summary>
+    public virtual void Skilled()
+    {
+
+    }
+
+
+    public virtual void BaseSkill(int code,Transform[] target,Vector3 pos)
+    {
+
+    }
+
+
 
     /// <summary>
     /// Set iswar fog culling
