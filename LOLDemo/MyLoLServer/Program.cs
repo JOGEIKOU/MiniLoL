@@ -21,10 +21,7 @@ namespace MyLoLServer
             ss.LE = LengthEncoding.encode;
             ss.Start(6660);
             Console.WriteLine("サーバー起動開始");
-            while(true)
-            {
-
-            }
+            while(true){ }
         }
     }
 }

@@ -29,7 +29,7 @@ namespace MyLoLServer.Logic.Fight
         public void Init(SelectModel[] teamRed,SelectModel[] teamBlue)
         {
             ChamCount = teamRed.Length + teamBlue.Length;
-            //enterCount = new ConcurrentInt(teamRed.Length + teamBlue.Length);
+          
             this.teamRed.Clear();
             this.teamBlue.Clear();
             off.Clear();
@@ -298,6 +298,14 @@ namespace MyLoLServer.Logic.Fight
                 }
             }
         }
+
+
+
+
+
+
+
+
 
 
         public override byte Type
