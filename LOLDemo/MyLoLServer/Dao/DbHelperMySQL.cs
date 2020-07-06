@@ -37,6 +37,60 @@ namespace Maticsoft.DBUtility
             }
         }
 
+        /// <summary>
+        /// 存在か
+        /// </summary>
+        /// <param name="strSql"></param>
+        /// <returns></returns>
+        public static bool Exists(string strSql)
+        {
+            object obj = GetSingle(strSql);
+            int cmdres;
+            if((Object.Equals(obj,null)) || (Object.Equals(obj,System.DBNull.Value)))
+            {
+                cmdres = 0;
+            }
+            else
+            {
+                cmdres = int.Parse(obj.ToString());
+            }
+            if(cmdres == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// 存在か（base of MySqlParameter）
+        /// </summary>
+        /// <param name="strSql"></param>
+        /// <param name="cmdParms"></param>
+        /// <returns></returns>
+        public static bool Exists(string strSql,params MySqlParameter[] cmdParms)
+        {
+            object obj = GetSingle(strSql, cmdParms);
+            int cmdres;
+            if((Object.Equals(obj,null)) || (Object.Equals(obj,System.DBNull.Value)))
+            {
+                cmdres = 0;
+            }
+            else
+            {
+                cmdres = int.Parse(obj.ToString());
+            }
+            if(cmdres == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
         #endregion
 
@@ -76,9 +130,92 @@ namespace Maticsoft.DBUtility
             }
         }
 
+        public static object GetSingle(string SQLString,int Times)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(SQLString, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        cmd.CommandTimeout = Times;
+                        object obj = cmd.ExecuteScalar();
+                        if((Object.Equals(obj,null)) || (Object.Equals(obj,System.DBNull.Value)))
+                        {
+                            return null;
+                        }
+                        else
+                        {
+                            return obj;
+                        }
+                    }
+                    catch(MySql.Data.MySqlClient.MySqlException e)
+                    {
+                        connection.Close();
+                        throw e;
+                    }
+                }
+            }
+        }
+
         #endregion
 
         #region 引数付きのSQLメソッド
+
+        /// <summary>
+        /// 検索メソッド一つ実行すると、Object結果を戻す
+        /// </summary>
+        /// <param name="SQLString"></param>
+        /// <param name="cmdParms"></param>
+        /// <returns></returns>
+        public static object GetSingle(string SQLString , params MySqlParameter[] cmdParms)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    try
+                    {
+                        PrepareCommand(cmd, connection, null, SQLString, cmdParms);
+                        object obj = cmd.ExecuteScalar();
+                        if((Object.Equals(obj , null)) || (Object.Equals(obj,System.DBNull.Value)))
+                        {
+                            return null;
+                        }
+                        else
+                        {
+                            return obj;
+                        }
+                    }
+                    catch(MySql.Data.MySqlClient.MySqlException e)
+                    {
+                        throw e;
+                    }
+                }
+            }
+        }
+
+        private static void PrepareCommand(MySqlCommand cmd, MySqlConnection conn , MySqlTransaction trans , string cmdText, MySqlParameter[] cmdParms)
+        {
+            if (conn.State != ConnectionState.Open) conn.Open();
+            cmd.Connection = conn;
+            cmd.CommandText = cmdText;
+            if (trans != null) cmd.Transaction = trans;
+            cmd.CommandType = CommandType.Text;                //cmdType
+            if(cmdParms != null)
+            {
+                foreach (MySqlParameter parameter in cmdParms)
+                {
+                    if((parameter.Direction == ParameterDirection.InputOutput || parameter.Direction == ParameterDirection.Input) &&
+                        (parameter.Value == null))
+                    {
+                        parameter.Value = DBNull.Value;
+                    }
+                    cmd.Parameters.Add(parameter);
+                }
+            }
+        }
 
         #endregion
 
