@@ -10,3 +10,9 @@ C:\Users\Xyhai\OneDrive\桌面\MyStudy\MyDemo\xyhaiwsq\LOLDemo\NetFramework\obj\
 C:\Users\Xyhai\OneDrive\桌面\MyStudy\MyDemo\xyhaiwsq\LOLDemo\NetFramework\obj\Debug\NetFramework.csproj.CoreCompileInputs.cache
 C:\Users\Xyhai\OneDrive\桌面\MyStudy\MyDemo\xyhaiwsq\LOLDemo\NetFramework\obj\Debug\NetFramework.dll
 C:\Users\Xyhai\OneDrive\桌面\MyStudy\MyDemo\xyhaiwsq\LOLDemo\NetFramework\obj\Debug\NetFramework.pdb
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\NetFramework\bin\Debug\NetFramework.dll
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\NetFramework\bin\Debug\NetFramework.pdb
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\NetFramework\obj\Debug\NetFramework.csprojAssemblyReference.cache
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\NetFramework\obj\Debug\NetFramework.csproj.CoreCompileInputs.cache
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\NetFramework\obj\Debug\NetFramework.dll
+C:\Users\Xyhai\OneDrive\桌面\MyStudy\GitProject\MyDemo\xyhaiwsq\LOLDemo\NetFramework\obj\Debug\NetFramework.pdb
