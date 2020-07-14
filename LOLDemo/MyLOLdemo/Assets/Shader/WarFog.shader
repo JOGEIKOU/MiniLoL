@@ -4,6 +4,7 @@ Shader "Custom/WarFog" {
 	Properties{
 		_MainTex("_MainTex", 2D) = "white" {}
 		_MaskTex("_MaskTex", 2D) = "white" {}
+		_Dead("_Dead", Float) = 0
 	}
 		SubShader{
 			Pass {
@@ -15,7 +16,7 @@ Shader "Custom/WarFog" {
 
 				uniform sampler2D _MainTex;
 				uniform sampler2D _MaskTex;
-
+				uniform float _Dead;
 				   struct m_appdata_img {
 		float4 vertex : POSITION;
 		half2 texcoord : TEXCOORD0;
@@ -32,14 +33,19 @@ Shader "Custom/WarFog" {
 					fixed4 renderTex = tex2D(_MainTex, i.uv);
 					 fixed4 renderTex1 = tex2D(_MaskTex, i.uv1);
 					fixed4 finalColor;
-					if (renderTex1.r < .3) {
-						finalColor = renderTex1.rgba;
+					if (_Dead < 0.5) {
+						float color = dot(renderTex.rgb,fixed3(0.22,0.707,0.071));
+						finalColor = fixed4(color,color,color,1);
 					}
-	else {
+	else
+   if (renderTex1.r < .3) {
 	   finalColor = renderTex.rgba;
    }
+else {
+   finalColor = renderTex.rgba;
+}
 
-   return finalColor;
+return finalColor;
 }
 
 float2 m_MultiplyUV(float4x4 mat, float2 inUV) {
@@ -59,7 +65,8 @@ m_v2f_img m_vert_img(m_appdata_img v)
 }
 			ENDCG
 		}
-	}
-		FallBack "Diffuse"
+		}
+			FallBack "Diffuse"
 }
+
 

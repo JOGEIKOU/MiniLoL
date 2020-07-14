@@ -68,6 +68,9 @@
     <Compile Include="Assets\Scripts\Fight\FightHandler.cs" />
     <Compile Include="Assets\Scripts\Fight\FightScene.cs" />
     <Compile Include="Assets\Scripts\Fight\PlayerHpbar.cs" />
+    <Compile Include="Assets\Scripts\Fight\Skill\Skill_Q.cs" />
+    <Compile Include="Assets\Scripts\Fight\Skill\TargetSkill.cs" />
+    <Compile Include="Assets\Scripts\Fight\Skill\TryAgainSkill.cs" />
     <Compile Include="Assets\Scripts\Fight\SpriteSlider.cs" />
     <Compile Include="Assets\Scripts\Fight\Ward.cs" />
     <Compile Include="Assets\Scripts\Lobi\CreatePanel.cs" />

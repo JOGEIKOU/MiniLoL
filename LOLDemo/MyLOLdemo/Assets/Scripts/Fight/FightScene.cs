@@ -54,6 +54,10 @@ public class FightScene : MonoBehaviour
     private int cameraV;
     public float cameraSpeed = 1f;
 
+    public bool dead = false;
+    [SerializeField]
+    private Transform NumParent;
+
     void Start()
     {
         Instance = this;
@@ -96,6 +100,15 @@ public class FightScene : MonoBehaviour
         }
     }
 
+    public void NumUp(Transform p,string value)
+    {
+        GameObject hp = (GameObject)Instantiate(Resources.Load("Prefabs/Pre_UI/HP"));
+        hp.GetComponent<Text>().text = value;
+        hp.transform.parent = NumParent;
+        hp.transform.localScale = Vector3.one;
+        hp.transform.localPosition = Camera.main.WorldToScreenPoint(p.position) + new Vector3(30, 20);
+    }
+
     /// <summary>
     /// 表すデータを初期化
     /// </summary>
@@ -114,6 +127,13 @@ public class FightScene : MonoBehaviour
             i++;
         }
     }
+
+    public void RefreshView(FightPlayerModel model)
+    {
+        hpSlider.value = model.hp / model.maxHp;
+        LevelText.text = model.level.ToString();
+    }
+
 
     public void RefreshLevelUp()
     {

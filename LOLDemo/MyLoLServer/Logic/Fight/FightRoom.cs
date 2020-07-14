@@ -241,14 +241,17 @@ namespace MyLoLServer.Logic.Fight
                             if(target.id>0)
                             {
                                 //kill champion
+                                //todo
                             }
                             else
                             {
                                 //kill minion
+                                //todo
                             }
                             break;
                         case ModelType.BUILD:
                             //kill tower and get gold
+                            //todo
                             break;
                     }
                 }

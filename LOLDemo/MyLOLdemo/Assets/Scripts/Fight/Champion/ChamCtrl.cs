@@ -22,7 +22,7 @@ public class ChamCtrl : MonoBehaviour
     [SerializeField]
     private MeshRenderer head;
 
-    private int state = AnimState.IDLE;
+    protected int state = AnimState.IDLE;
 
     private void Start()
     {
@@ -52,10 +52,15 @@ public class ChamCtrl : MonoBehaviour
         }
     }
 
+    public void HpChange()
+    {
+        hpbar.HpbarChange(1f * data.hp / data.maxHp);
+    }
+
     /// <summary>
     /// 攻撃anim終了
     /// </summary>
-    public void AttackFinish()
+    public virtual void AttackFinish()
     {
 
     }
@@ -75,7 +80,7 @@ public class ChamCtrl : MonoBehaviour
     /// 攻撃請求
     /// </summary>
     /// <param name="target">目標群</param>
-    public void Attack(Transform[] targets)
+    public virtual void  Attack(Transform[] targets)
     {
 
     }
@@ -85,7 +90,7 @@ public class ChamCtrl : MonoBehaviour
     /// </summary>
     /// <param name="code">スキル種類</param>
     /// <param name="targets">目標群</param>
-    public void Skill(int code , Transform[] targets)
+    public virtual void Skill(int code , Transform[] targets,Vector3 pos)
     {
 
     }
